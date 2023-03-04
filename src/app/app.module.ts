@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { PhotoComponent } from './photo/photo.component';
 
+import { AppComponent } from './app.component';
+import { PhotoComponent } from './components/photos/photo/photo.component';
 @NgModule({
   declarations: [AppComponent, PhotoComponent],
   imports: [BrowserModule, AppRoutingModule],
