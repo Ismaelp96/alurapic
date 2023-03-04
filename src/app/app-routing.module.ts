@@ -1,10 +1,15 @@
+import { PhotoFormComponent } from './components/photos/photo-form/photo-form.component';
+import { PhotoListComponent } from './components/photos/photo-list/photo-list.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: 'user/flavio', component: PhotoListComponent },
+  { path: 'p/add', component: PhotoFormComponent },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
