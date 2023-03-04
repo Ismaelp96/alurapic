@@ -9,7 +9,12 @@ import { PhotoListComponent } from './components/photos/photo-list/photo-list.co
 import { PhotoFormComponent } from './components/photos/photo-form/photo-form.component';
 
 @NgModule({
-  declarations: [AppComponent, PhotoComponent, PhotoListComponent, PhotoFormComponent],
+  declarations: [
+    AppComponent,
+    PhotoComponent,
+    PhotoListComponent,
+    PhotoFormComponent,
+  ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
