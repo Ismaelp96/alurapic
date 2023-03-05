@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { PhotoComponent } from './components/photos/photo/photo.component';
 import { PhotoListComponent } from './components/photos/photo-list/photo-list.component';
 import { PhotoFormComponent } from './components/photos/photo-form/photo-form.component';
+import { PhotosComponent } from './components/photos/photo-list/photos/photos.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { PhotoFormComponent } from './components/photos/photo-form/photo-form.co
     PhotoComponent,
     PhotoListComponent,
     PhotoFormComponent,
+    PhotosComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
