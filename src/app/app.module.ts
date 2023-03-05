@@ -8,6 +8,7 @@ import { PhotoComponent } from './components/photos/photo/photo.component';
 import { PhotoListComponent } from './components/photos/photo-list/photo-list.component';
 import { PhotoFormComponent } from './components/photos/photo-form/photo-form.component';
 import { PhotosComponent } from './components/photos/photo-list/photos/photos.component';
+import { FilterByDescription } from './components/photos/photo-list/filter-by-description.pipe';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { PhotosComponent } from './components/photos/photo-list/photos/photos.co
     PhotoListComponent,
     PhotoFormComponent,
     PhotosComponent,
+    FilterByDescription,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
