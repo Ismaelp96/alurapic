@@ -10,3 +10,4 @@
   </form>
 </div>
 <app-photos [photos]="photos | filterByDescription : filter"></app-photos>
+<app-load-butoon [hasMore]="hasMore" (click)="load()"></app-load-butoon>

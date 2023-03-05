@@ -9,6 +9,7 @@ import { PhotoListComponent } from './components/photos/photo-list/photo-list.co
 import { PhotoFormComponent } from './components/photos/photo-form/photo-form.component';
 import { PhotosComponent } from './components/photos/photo-list/photos/photos.component';
 import { FilterByDescription } from './components/photos/photo-list/filter-by-description.pipe';
+import { LoadButoonComponent } from './components/photos/photo-list/load-button/load-button.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { FilterByDescription } from './components/photos/photo-list/filter-by-de
     PhotoFormComponent,
     PhotosComponent,
     FilterByDescription,
+    LoadButoonComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
