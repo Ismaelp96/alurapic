@@ -1,5 +1,12 @@
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  Output,
+  Input,
+  EventEmitter,
+} from '@angular/core';
 import { debounceTime, Subject } from 'rxjs';
-import { Component, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-search',
@@ -7,11 +14,14 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
   styleUrls: ['./search.component.css'],
 })
 export class SearchComponent implements OnInit, OnDestroy {
-  filter: string = '';
+  @Output() onTyping = new EventEmitter<string>();
+  @Input() value: string = '';
   debounce: Subject<string> = new Subject<string>();
 
   ngOnInit(): void {
-    this.debounce.pipe(debounceTime(300));
+    this.debounce
+      .pipe(debounceTime(300))
+      .subscribe((filter) => this.onTyping.emit(filter));
   }
 
   ngOnDestroy(): void {
