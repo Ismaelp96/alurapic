@@ -4,8 +4,10 @@ import { PhotoFormComponent } from './components/photos/photo-form/photo-form.co
 import { PhotoListComponent } from './components/photos/photo-list/photo-list.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { SigninComponent } from './home/signin/signin.component';
 
 const routes: Routes = [
+  { path: '', component: SigninComponent },
   {
     path: 'user/:userName',
     component: PhotoListComponent,
