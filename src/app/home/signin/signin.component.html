@@ -1,12 +1,14 @@
 <h4 class="text-center">Login</h4>
 
-<form [formGroup]="loginForm" class="form mt-4">
+<form [formGroup]="loginForm" class="form mt-4" (submit)="login()">
   <div class="form-group mb-3">
     <input
+      #userNameInput
       formControlName="userName"
-      class="form-control"
+      class="form-control username"
       placeholder="user name"
       autofocus
+      id="username"
       autocomplete="on"
     />
     <app-vmessage
@@ -19,7 +21,7 @@
 
   <div class="form-group mb-3">
     <input
-      formControlName="currentPassword"
+      formControlName="password"
       type="password"
       class="form-control"
       placeholder="password"
@@ -27,8 +29,7 @@
     />
     <app-vmessage
       *ngIf="
-        loginForm.get('currentPassword')?.errors &&
-        loginForm.get('currentPassword')?.touched
+        loginForm.get('password')?.errors && loginForm.get('password')?.touched
       "
       text="Password is  required!"
     ></app-vmessage>
