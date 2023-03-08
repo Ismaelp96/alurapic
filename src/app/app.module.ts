@@ -12,6 +12,7 @@ import { PhotosComponent } from './components/photos/photo-list/photos/photos.co
 import { FilterByDescriptionPipe } from './components/photos/photo-list/filter-by-description.pipe';
 import { SearchComponent } from './components/photos/photo-list/search/search.component';
 import { DarkenOnHoverDirective } from './darken-on-hover.directive';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,13 @@ import { DarkenOnHoverDirective } from './darken-on-hover.directive';
     SearchComponent,
     DarkenOnHoverDirective,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, HomeModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    HomeModule,
+    CoreModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
