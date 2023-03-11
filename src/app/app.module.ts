@@ -11,8 +11,8 @@ import { PhotoComponent } from './components/photos/photo/photo.component';
 import { PhotosComponent } from './components/photos/photo-list/photos/photos.component';
 import { FilterByDescriptionPipe } from './components/photos/photo-list/filter-by-description.pipe';
 import { SearchComponent } from './components/photos/photo-list/search/search.component';
-import { DarkenOnHoverDirective } from './darken-on-hover.directive';
 import { CoreModule } from './core/core.module';
+import { DarkenOnHoverDirective } from './directives/darken-on-hover.directive';
 
 @NgModule({
   declarations: [

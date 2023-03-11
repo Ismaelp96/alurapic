@@ -27,7 +27,10 @@
       class="form-control"
     />
     <app-vmessage
-      *ngIf="signupForm.get('fullName')?.errors?.['required']"
+      *ngIf="
+        signupForm.get('fullName')?.errors &&
+        signupForm.get('fullName')?.touched
+      "
       text="fullname is required!"
     ></app-vmessage>
     <app-vmessage
@@ -47,7 +50,10 @@
       class="form-control"
     />
     <app-vmessage
-      *ngIf="signupForm.get('userName')?.errors?.['required']"
+      *ngIf="
+        signupForm.get('userName')?.errors &&
+        signupForm.get('userName')?.touched
+      "
       text="user name is required!"
     ></app-vmessage>
     <app-vmessage
@@ -59,7 +65,7 @@
       text="Maximun length is 30"
     ></app-vmessage>
     <app-vmessage
-      *ngIf="signupForm.get('userName')?.errors?.['pattern']"
+      *ngIf="signupForm.get('userName')?.errors?.['lowerCase']"
       text="Must be lower case"
     ></app-vmessage>
   </div>
@@ -72,7 +78,10 @@
       class="form-control"
     />
     <app-vmessage
-      *ngIf="signupForm.get('password')?.errors?.['required']"
+      *ngIf="
+        signupForm.get('password')?.errors &&
+        signupForm.get('password')?.touched
+      "
       text="password is required!"
     ></app-vmessage>
     <app-vmessage
