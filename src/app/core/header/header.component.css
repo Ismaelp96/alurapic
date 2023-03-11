@@ -11,4 +11,14 @@ nav .icon-user {
 nav .icon-user a {
   text-decoration: none;
   color: black;
+  text-transform: uppercase;
+}
+nav .icon-user .logout-header {
+  color: gray;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  text-transform: lowercase;
+}
+nav .icon-user .logout-header:hover {
+  color: red;
 }
