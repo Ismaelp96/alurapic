@@ -1,0 +1,14 @@
+header {
+  width: 100%;
+}
+nav .alura {
+  padding-left: 16px;
+}
+nav .icon-user {
+  padding-right: 16px;
+}
+
+nav .icon-user a {
+  text-decoration: none;
+  color: black;
+}
