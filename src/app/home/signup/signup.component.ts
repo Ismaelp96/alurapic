@@ -17,6 +17,7 @@ import { lowerCaseValidator } from 'src/app/validators/lower-case.validator';
 @Component({
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css'],
+  providers: [UserNotTakenValidatorService],
 })
 export class SignupComponent implements OnInit, AfterViewInit {
   signupForm!: FormGroup;
