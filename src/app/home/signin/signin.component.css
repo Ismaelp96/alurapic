@@ -6,3 +6,15 @@ form {
   flex-direction: column;
   margin-bottom: 20px;
 }
+
+.signup-link {
+  text-decoration: none;
+  filter: grayscale(100%);
+  display: inline-block;
+  transition: all 0.3s ease;
+  padding-left: 2px;
+}
+.signup-link:hover {
+  filter: grayscale(0);
+  transform: translateY(-2px);
+}

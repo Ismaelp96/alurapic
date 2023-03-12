@@ -3,10 +3,12 @@
 <form [formGroup]="signupForm" class="form mt-4" (submit)="signup()">
   <div class="form-group mb-2">
     <input
+      #emailInput
       formControlName="email"
       placeholder="email"
       class="form-control"
       autofocus
+      autocomplete="on"
     />
     <app-vmessage
       *ngIf="
@@ -25,6 +27,7 @@
       formControlName="fullName"
       placeholder="full name"
       class="form-control"
+      autocomplete="on"
     />
     <app-vmessage
       *ngIf="
@@ -47,6 +50,7 @@
       formControlName="userName"
       placeholder="user name"
       class="form-control"
+      autocomplete="on"
     />
     <app-vmessage
       *ngIf="
@@ -82,6 +86,7 @@
       type="password"
       placeholder="password"
       class="form-control"
+      autocomplete="on"
     />
     <app-vmessage
       *ngIf="signupForm.get('password')?.errors?.['required']"
