@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -9,6 +10,12 @@ import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [SigninComponent, VmessageComponent, SignupComponent],
-  imports: [CommonModule, ReactiveFormsModule, RouterModule, FormsModule],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    RouterModule,
+    FormsModule,
+    HttpClientModule,
+  ],
 })
 export class HomeModule {}
