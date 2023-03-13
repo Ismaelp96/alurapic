@@ -13,7 +13,7 @@
     />
     <app-vmessage
       *ngIf="
-        loginForm.get('userName')?.errors && loginForm.get('userName')?.touched
+        loginForm.get('userName')?.errors?.['required']
       "
       text="User name is  required!"
     ></app-vmessage>
@@ -29,7 +29,7 @@
     />
     <app-vmessage
       *ngIf="
-        loginForm.get('password')?.errors && loginForm.get('password')?.touched
+      loginForm.get('password')?.errors?.['required']
       "
       text="Password is  required!"
     ></app-vmessage>
