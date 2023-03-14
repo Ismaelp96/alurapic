@@ -16,6 +16,7 @@ import { PlataformDetectorService } from 'src/app/core/plataform-detect/platafor
 })
 export class SigninComponent implements OnInit, AfterViewInit {
   loginForm!: FormGroup;
+
   @ViewChild('userNameInput')
   userNameInput!: ElementRef<HTMLInputElement>;
 

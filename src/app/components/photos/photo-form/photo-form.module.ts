@@ -1,11 +1,12 @@
 import { HomeModule } from './../../../home/home.module';
-import { ReactiveFormsModule } from '@angular/forms';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PhotoFormComponent } from './photo-form.component';
 
 @NgModule({
   declarations: [PhotoFormComponent],
-  imports: [CommonModule, ReactiveFormsModule, HomeModule],
+  imports: [CommonModule, ReactiveFormsModule, FormsModule, HomeModule],
 })
 export class PhotoFormModule {}

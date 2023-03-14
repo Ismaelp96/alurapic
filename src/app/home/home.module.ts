@@ -27,5 +27,6 @@ import { HomeRoutingModule } from './home.routing.module';
     HomeRoutingModule,
   ],
   providers: [SignupService],
+  exports: [VmessageComponent],
 })
 export class HomeModule {}
