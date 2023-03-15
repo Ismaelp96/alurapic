@@ -22,6 +22,13 @@ nav .icon-user .logout-header {
 nav .icon-user .logout-header:hover {
   color: red;
 }
+
+.navbar-text {
+  color: gray;
+}
+.navbar-text:hover {
+  color: rgba(122, 122, 253, 0.977);
+}
 .p-login {
   text-decoration: none;
   color: gray;
@@ -29,5 +36,5 @@ nav .icon-user .logout-header:hover {
   padding-right: 20px;
 }
 .p-login:hover {
-  color: black;
+  color: rgba(122, 122, 253, 0.977);
 }
