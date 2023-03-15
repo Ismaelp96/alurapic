@@ -29,5 +29,6 @@ import { DarkenOnHoverDirective } from './directives/darken-on-hover.directive';
   imports: [BrowserModule, HttpClientModule, CoreModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
+  exports: [PhotoComponent],
 })
 export class AppModule {}
