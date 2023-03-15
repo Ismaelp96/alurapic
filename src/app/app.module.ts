@@ -1,3 +1,4 @@
+import { PhotoDetailsComponent } from './components/photos/photo-details/photo-details.component';
 import { PhotoFormModule } from './components/photos/photo-form/photo-form.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
@@ -13,6 +14,7 @@ import { FilterByDescriptionPipe } from './components/photos/photo-list/filter-b
 import { SearchComponent } from './components/photos/photo-list/search/search.component';
 import { CoreModule } from './core/core.module';
 import { DarkenOnHoverDirective } from './directives/darken-on-hover.directive';
+import { PhotoDetailsModule } from './components/photos/photo-details/photo-details.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,13 @@ import { DarkenOnHoverDirective } from './directives/darken-on-hover.directive';
     SearchComponent,
     DarkenOnHoverDirective,
   ],
-  imports: [BrowserModule, HttpClientModule, CoreModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    CoreModule,
+    AppRoutingModule,
+    PhotoDetailsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
   exports: [PhotoComponent],
