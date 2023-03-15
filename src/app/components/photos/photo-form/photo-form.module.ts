@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { AppModule } from './../../../app.module';
 import { PhotoFormComponent } from './photo-form.component';
 import { HomeModule } from './../../../home/home.module';
+import { ImmediateClickModule } from 'src/app/directives/immediate-click/immediate-click.module';
 
 @NgModule({
   declarations: [PhotoFormComponent],
@@ -16,6 +17,7 @@ import { HomeModule } from './../../../home/home.module';
     HomeModule,
     RouterModule,
     AppModule,
+    ImmediateClickModule,
   ],
 })
 export class PhotoFormModule {}
