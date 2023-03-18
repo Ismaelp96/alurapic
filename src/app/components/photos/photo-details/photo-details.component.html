@@ -13,7 +13,11 @@
         <div class="text-left mb-4">
           <i class="fa fa-comment-o fa-2x mr-2 ml-2" aria-hidden="true"></i>
           {{ photo.comments }}
-          <i showIfLogged class="fa fa-heart-o fa-2x mr-2 pull-left">
+          <i
+            showIfLogged
+            class="fa fa-heart-o fa-2x mr-2 pull-left"
+            (click)="like(photo)"
+          >
             {{ photo.likes }}
           </i>
           <i
