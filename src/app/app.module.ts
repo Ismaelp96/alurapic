@@ -8,10 +8,9 @@ import { ErrosModule } from './errors/erros.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { PhotosModule } from './components/photos/photos.module';
-import { AlertComponent } from './alert/alert.component';
 
 @NgModule({
-  declarations: [AppComponent, AlertComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
