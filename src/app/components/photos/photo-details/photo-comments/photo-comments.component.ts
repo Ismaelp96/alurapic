@@ -1,8 +1,9 @@
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { PhotoService } from './../../photo/photo.service';
 import { Component, Input, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Observable, switchMap, tap } from 'rxjs';
+
 import { PhotoComment } from './../../photo/photo-comment';
+import { PhotoService } from './../../photo/photo.service';
 
 @Component({
   selector: 'app-photo-comments',
@@ -26,9 +27,13 @@ export class PhotoCommentsComponent implements OnInit {
   }
   save() {
     const comment = this.commentForm.get('comment')?.value as string;
-    this.photoService.addComment(this.photoId, comment).subscribe(() => {
-      this.commentForm.reset();
-      alert('Commentário adicionado com sucesso!');
-    });
+    this.comments$ = this.photoService
+      .addComment(this.photoId, comment)
+      .pipe(switchMap(() => this.photoService.getComments(this.photoId)))
+      .pipe(
+        tap(() => {
+          this.commentForm.reset();
+        })
+      );
   }
 }
