@@ -10,6 +10,14 @@
     <div class="col-lg-4 p-4">
       <small>
         <p class="text-left break-word">{{ photo.description }}</p>
+        <div class="text-left mb-4">
+          <i class="fa fa-comment-o fa-2x mr-2 ml-2" aria-hidden="true"></i>
+          {{ photo.comments }}
+          <i
+            class="remove-photo fa fa-trash-o fa-2x pull-right"
+            (click)="remove()"
+          ></i>
+        </div>
         <hr />
       </small>
       <app-photo-comments
