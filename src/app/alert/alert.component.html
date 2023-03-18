@@ -1,1 +1,6 @@
-<div class="{{ getAlertClass(alert) }}" *ngFor="let alert of alerts"></div>
+<div
+  class="text-center {{ getAlertClass(alert) }}"
+  *ngFor="let alert of alerts"
+>
+  {{ alert.message }}
+</div>
