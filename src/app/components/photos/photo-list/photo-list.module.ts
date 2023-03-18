@@ -1,13 +1,13 @@
-import { PhotoModule } from './../photo/photo.module';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+
 import { DarkenOnHoverDirective } from './../../../directives/darken-on-hover.directive';
 import { SearchComponent } from './search/search.component';
 import { LoadButoonComponent } from './load-button/load-button.component';
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { PhotosComponent } from './photos/photos.component';
 import { PhotoListComponent } from './photo-list.component';
-
+import { PhotoModule } from './../photo/photo.module';
 import { FilterByDescriptionPipe } from './filter-by-description.pipe';
 
 @NgModule({
