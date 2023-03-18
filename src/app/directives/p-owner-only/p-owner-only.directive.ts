@@ -1,5 +1,5 @@
-import { UserService } from './../../../../core/user/user.service';
-import { Photo } from './../../photo/photo';
+import { UserService } from '../../core/user/user.service';
+import { Photo } from '../../components/photos/photo/photo';
 import { Directive, Input, ElementRef, Renderer2, OnInit } from '@angular/core';
 @Directive({
   selector: ' [photoOwnerOnly]',
