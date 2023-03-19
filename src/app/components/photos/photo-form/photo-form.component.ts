@@ -1,9 +1,11 @@
-import { UserService } from './../../../core/user/user.service';
-import { AlertService } from './../../../alert/alert.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { HttpEvent, HttpEventType, HttpResponse } from '@angular/common/http';
+import { finalize } from 'rxjs';
 
+import { UserService } from './../../../core/user/user.service';
+import { AlertService } from './../../../alert/alert.service';
 import { PhotoService } from './../photo/photo.service';
 
 @Component({
@@ -15,6 +17,7 @@ export class PhotoFormComponent implements OnInit {
   photoForm!: FormGroup;
   file!: File;
   preview!: string;
+  percentDone = 0;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -35,12 +38,26 @@ export class PhotoFormComponent implements OnInit {
   upload() {
     const description = this.photoForm.get('description')?.value;
     const allowComments = this.photoForm.get('allowComments')?.value;
-    this.photoService.upload(description, allowComments, this.file).subscribe({
-      next: () => {
-        this.alertService.success('Upload complete', true);
-        this.router.navigate(['/user', this.userService.getUserName()]);
-      },
-    });
+    this.photoService
+      .upload(description, allowComments, this.file)
+      .pipe(
+        finalize(() => {
+          this.router.navigate(['/user', this.userService.getUserName()]);
+        })
+      )
+      .subscribe({
+        next: (event: HttpEvent<any>) => {
+          if (event.type == HttpEventType.UploadProgress) {
+            this.percentDone = Math.round((100 * event.loaded) / event.total!);
+          } else if (event instanceof HttpResponse) {
+            this.alertService.success('Upload complete', true);
+          }
+        },
+        error: (err) => {
+          console.log(err);
+          this.alertService.danger('Upload error!', true);
+        },
+      });
   }
 
   handleFile(file: File) {
