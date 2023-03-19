@@ -6,7 +6,6 @@ import {
   AfterViewInit,
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/auth/auth.service';
 import { PlataformDetectorService } from 'src/app/core/plataform-detect/plataform-detector.service';
@@ -25,15 +24,13 @@ export class SigninComponent implements OnInit, AfterViewInit {
     private formBuilder: FormBuilder,
     private authService: AuthService,
     private router: Router,
-    private platformDetectorService: PlataformDetectorService,
-    private titleService: Title
+    private platformDetectorService: PlataformDetectorService
   ) {}
   ngAfterViewInit(): void {
     this.platformDetectorService.isPlatformBrower() &&
       this.userNameInput.nativeElement.focus();
   }
   ngOnInit(): void {
-    this.titleService.setTitle('Login');
     this.loginForm = this.formBuilder.group({
       userName: ['', Validators.required],
       password: ['', Validators.required],
