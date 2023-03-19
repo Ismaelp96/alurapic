@@ -1,5 +1,5 @@
 import { UserService } from './../../../core/user/user.service';
-import { AlertService } from './../../../alert/alert.service';
+import { AlertService } from '../../../shared/alert/alert.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';

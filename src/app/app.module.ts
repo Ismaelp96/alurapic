@@ -1,3 +1,4 @@
+import { MenuModule } from './shared/menu/menu.module';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -9,6 +10,7 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { PhotosModule } from './components/photos/photos.module';
 
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -18,6 +20,7 @@ import { PhotosModule } from './components/photos/photos.module';
     AppRoutingModule,
     ErrosModule,
     PhotosModule,
+    MenuModule
   ],
   providers: [],
   bootstrap: [AppComponent],

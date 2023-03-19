@@ -22,19 +22,32 @@ nav .icon-user .logout-header {
 nav .icon-user .logout-header:hover {
   color: red;
 }
+nav .hamburger {
+  cursor: pointer;
+  transition: color 0.3 ease;
+}
 
+nav .hamburger:hover {
+  color: rgb(69, 69, 255);
+}
+
+nav .menu-left li {
+  list-style: none;
+}
 .navbar-text {
-  color: gray;
+  transition: all 0.3s ease;
 }
+
 .navbar-text:hover {
-  color: rgba(122, 122, 253, 0.977);
+  color: rgb(69, 69, 255);
 }
+
 .p-login {
   text-decoration: none;
-  color: gray;
+  color: black;
   transition: color 0.3s ease;
   padding-right: 20px;
 }
 .p-login:hover {
-  color: rgba(122, 122, 253, 0.977);
+  color: rgb(69, 69, 255);
 }

@@ -1,6 +1,15 @@
 <header class="fixed-top">
   <nav class="navbar navbar-light bg-white">
-    <a class="navbar-brand alura">ALURAPIC</a>
+    <a class="navbar-brand alura">
+      <i class="hamburger fa fa-bars mr-2" (click)="menu.toggle()"></i>
+      ALURAPIC
+    </a>
+    <app-menu #menu>
+      <ul class="menu-left">
+        <li>Menu item 1</li>
+        <li>Menu item 2</li>
+      </ul>
+    </app-menu>
     <div class="icon-user" *ngIf="user$ | async as user; else login">
       <i class="fa fa-user-circle mr-1"></i>
       <a class="mr-1"> {{ user.name }} </a>
@@ -13,10 +22,10 @@
       ></i>
     </div>
     <ng-template #login>
-      <span class="navbar-text">
+      <div class="navbar-text">
         <i class="fa fa-sign-in" aria-hidden="true"></i>
         <a [routerLink]="['']" class="p-login"> Please, login! </a>
-      </span>
+      </div>
     </ng-template>
   </nav>
   <div class="fixed-top">
