@@ -1,13 +1,19 @@
 <header class="fixed-top">
   <nav class="navbar navbar-light bg-white">
     <a class="navbar-brand alura">
-      <i class="hamburger fa fa-bars mr-2" (click)="menu.toggle()"></i>
+      <i
+        tabindex="0"
+        (keyup.space)="menu.toggle()"
+        class="hamburger fa fa-bars mr-2"
+        (click)="menu.toggle()"
+      ></i>
       ALURAPIC
     </a>
     <app-menu #menu>
       <ul class="menu-left">
-        <li>Menu item 1</li>
-        <li>Menu item 2</li>
+        <li>
+          <a showIfLogged [routerLink]="['p', 'add']">Upload</a>
+        </li>
       </ul>
     </app-menu>
     <div class="icon-user" *ngIf="user$ | async as user; else login">

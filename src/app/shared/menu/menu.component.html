@@ -1,7 +1,12 @@
 <div [ngClass]="{ 'active-menu': isShow }">
   <div class="overlay" (click)="toggle()"></div>
   <div class="menu-bar">
-    <i class="close fa fa-window-close" (click)="toggle()"></i>
+    <i
+      tabindex="0"
+      class="close fa fa-window-close"
+      (keyup.space)="toggle()"
+      (click)="toggle()"
+    ></i>
     <ng-content></ng-content>
   </div>
 </div>
