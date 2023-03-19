@@ -1,3 +1,4 @@
+import { LoadingModule } from './../loading/loading.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -10,7 +11,7 @@ import { AlertModule } from './../alert/alert.module';
 
 @NgModule({
   declarations: [HeaderComponent, FooterComponent],
-  imports: [CommonModule, RouterModule, AlertModule],
+  imports: [CommonModule, RouterModule, AlertModule, LoadingModule],
   exports: [HeaderComponent, FooterComponent],
   providers: [
     {
