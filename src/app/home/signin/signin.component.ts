@@ -6,7 +6,7 @@ import {
   AfterViewInit,
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/core/auth/auth.service';
 import { PlataformDetectorService } from 'src/app/core/plataform-detect/plataform-detector.service';
 
@@ -16,6 +16,7 @@ import { PlataformDetectorService } from 'src/app/core/plataform-detect/platafor
 })
 export class SigninComponent implements OnInit, AfterViewInit {
   loginForm!: FormGroup;
+  fromUrl!: string;
 
   @ViewChild('userNameInput')
   userNameInput!: ElementRef<HTMLInputElement>;
@@ -24,13 +25,17 @@ export class SigninComponent implements OnInit, AfterViewInit {
     private formBuilder: FormBuilder,
     private authService: AuthService,
     private router: Router,
-    private platformDetectorService: PlataformDetectorService
+    private platformDetectorService: PlataformDetectorService,
+    private activatedRoute: ActivatedRoute
   ) {}
   ngAfterViewInit(): void {
     this.platformDetectorService.isPlatformBrower() &&
       this.userNameInput.nativeElement.focus();
   }
   ngOnInit(): void {
+    this.activatedRoute.queryParams.subscribe((params) => {
+      this.fromUrl = params['fromUrl'];
+    });
     this.loginForm = this.formBuilder.group({
       userName: ['', Validators.required],
       password: ['', Validators.required],
@@ -41,7 +46,11 @@ export class SigninComponent implements OnInit, AfterViewInit {
     const userName = this.loginForm.get('userName')?.value;
     const password = this.loginForm.get('password')?.value;
     this.authService.authenticate(userName, password).subscribe({
-      next: () => this.router.navigate(['user', userName]),
+      next: () => {
+        this.fromUrl
+          ? this.router.navigateByUrl(this.fromUrl)
+          : this.router.navigate(['user', userName]);
+      },
       error: (err) => {
         console.log(err);
         this.loginForm.reset();
