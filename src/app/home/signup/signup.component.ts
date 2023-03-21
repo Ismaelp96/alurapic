@@ -1,4 +1,3 @@
-import { PlataformDetectorService } from 'src/app/core/plataform-detect/plataform-detector.service';
 import {
   AfterViewInit,
   Component,
@@ -13,6 +12,8 @@ import { SignupService } from './signup.service';
 import { UserNotTakenValidatorService } from './user-not-taken.validator.service';
 import { NewUser } from './new-user';
 import { lowerCaseValidator } from 'src/app/validators/lower-case.validator';
+import { userNamePassword } from './username-password.validator';
+import { PlataformDetectorService } from 'src/app/core/plataform-detect/plataform-detector.service';
 
 @Component({
   templateUrl: './signup.component.html',
@@ -37,35 +38,38 @@ export class SignupComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.signupForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      fullName: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(2),
-          Validators.maxLength(40),
+    this.signupForm = this.formBuilder.group(
+      {
+        email: ['', [Validators.required, Validators.email]],
+        fullName: [
+          '',
+          [
+            Validators.required,
+            Validators.minLength(2),
+            Validators.maxLength(40),
+          ],
         ],
-      ],
-      userName: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(2),
-          Validators.maxLength(30),
-          lowerCaseValidator,
+        userName: [
+          '',
+          [
+            Validators.required,
+            Validators.minLength(2),
+            Validators.maxLength(30),
+            lowerCaseValidator,
+          ],
+          this.userNotTakenValidatorService.checkUserNameTaken(),
         ],
-        this.userNotTakenValidatorService.checkUserNameTaken(),
-      ],
-      password: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(8),
-          Validators.maxLength(14),
+        password: [
+          '',
+          [
+            Validators.required,
+            Validators.minLength(8),
+            Validators.maxLength(14),
+          ],
         ],
-      ],
-    });
+      },
+      { validator: userNamePassword }
+    );
   }
   signup() {
     if (this.signupForm.valid && !this.signupForm.pending) {
