@@ -1,4 +1,4 @@
-import { PhotoDetailsComponent } from './components/photos/photo-details/photo-details.component';
+import { GlobalErrorComponent } from './errors/global-error/global-error.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -6,6 +6,7 @@ import { PhotoListResolver } from './components/photos/photo-list/photo-list.res
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { PhotoFormComponent } from './components/photos/photo-form/photo-form.component';
 import { PhotoListComponent } from './components/photos/photo-list/photo-list.component';
+import { PhotoDetailsComponent } from './components/photos/photo-details/photo-details.component';
 import { AuthGuard } from './core/auth/auth.guard';
 
 const routes: Routes = [
@@ -41,6 +42,13 @@ const routes: Routes = [
     component: PhotoDetailsComponent,
     data: {
       title: 'Photo detail',
+    },
+  },
+  {
+    path: 'error',
+    component: GlobalErrorComponent,
+    data: {
+      title: 'Error',
     },
   },
   {
